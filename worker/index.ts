@@ -5,7 +5,7 @@ import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import { Env } from "./core-utils";
 import { API_RESPONSES } from "./config";
-import { userRoutes, coreRoutes } from "./userRoutes";
+import { userRoutes } from "./userRoutes";
 import { ChatAgent } from "./agent";
 import { AppController } from "./app-controller";
 export { ChatAgent, AppController };
@@ -40,7 +40,6 @@ app.use(
 );
 
 userRoutes(app);
-coreRoutes(app);
 
 app.get("/api/health", (c) =>
   c.json({
